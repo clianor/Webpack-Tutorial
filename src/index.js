@@ -1,1 +1,5 @@
-alert("Hello World");
+const hello = () => {
+  console.log(hello);
+};
+
+hello();
