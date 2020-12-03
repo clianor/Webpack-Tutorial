@@ -82,13 +82,11 @@ npm i -D webpack webpack-cli
 <details>
 <summary>접기/펼치기 버튼</summary>
 
-
-
   ```
   npm install -D babel-loader @babel/core @babel/preset-env
   ```
 
-  ```
+  ```js
   // webpack.config.js
   const HtmlWebpackPlugin = require("html-webpack-plugin");
   const path = require("path");
@@ -128,13 +126,15 @@ npm i -D webpack webpack-cli
 
 ### React 설정
 
+<details>
+<summary>접기/펼치기 버튼</summary>
 
 ```
 npm i react react-dom
 npm i -D @babel/preset-react
 ```
 
-```
+```js
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
@@ -169,9 +169,12 @@ module.exports = {
   plugins: [new HtmlWebpackPlugin()],
 };
 ```
+</details>
 
 ### webpack-dev-server 설정
 
+<details>
+<summary>접기/펼치기 버튼</summary>
 
 `Error: Cannot find module ‘webpack-cli/bin/config-yargs’` 가 발생하여 아래와 같이 작업
 ```
@@ -239,3 +242,47 @@ module.exports = {
   ],
 };
 ```
+</details>
+
+### css-loader 설정
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```
+npm i -D mini-css-extract-plugin css-loader
+```
+
+```js
+// webpack.config.js
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+...
+
+rules: [
+  ...
+  {
+    test: /\.css$/i,
+    use: [MiniCssExtractPlugin.loader, "css-loader"],
+  },
+],
+...
+plugins: [
+  ...
+  new MiniCssExtractPlugin({
+    filename: "[name].css",
+    chunkFilename: "[id].css",
+  }),
+],
+```
+</details>
+
+### 웹팩 로더와 플러그인의 차이
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+웹팩의 로더와 플러그인의 차이는 간단하다 차이는 다음과 같다.
+
+로더는 웹팩이 이해할 수 있게 비 자바스크립트 파일을 변환하여 웹팩이 읽을 수 있게 한다.
+플러그인은 번들된 결과물을 처리하는데 이는 간단히 생각하면 추출된 결과물은 플러그인을 통해 만들어진다고 생각하면 된다.
+</details>
