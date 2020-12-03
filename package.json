@@ -4,9 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --config config/webpack.config.prod.js",
     "prebuild": "DEL /s /f /q dist",
-    "start:dev": "webpack-dev-server --open"
+    "start:dev": "webpack-dev-server --open --config config/webpack.config.dev.js"
   },
   "keywords": [],
   "author": "",
