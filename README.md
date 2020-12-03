@@ -347,7 +347,17 @@ plugins: [
 npm i -D typescript ts-loader @types/react @types/react-dom
 npx tsconfig.json
 // react 선택
-// tsconfig.json 파일에서 rootDir를 지워줍니다.
+```
+
+```json
+// tsconfig.json
+{
+  ...
+  "include": [
+    "src"
+  ],
+  ...
+}
 ```
 
 ```js

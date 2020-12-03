@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "build/dist",
+    "outDir": "dist",
     "module": "esnext",
     "target": "es5",
     "lib": [
@@ -13,6 +13,7 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
+    "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -22,9 +23,12 @@
     "noUnusedLocals": true,
     "skipLibCheck": true
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules",
-    "build",
+    "dist",
     "scripts",
     "acceptance-tests",
     "webpack",
