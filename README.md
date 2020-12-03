@@ -337,3 +337,36 @@ plugins: [
 ```
 
 </details>
+
+### 타입스크립트 설정
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```
+npm i -D typescript ts-loader @types/react @types/react-dom
+npx tsconfig.json
+// react 선택
+// tsconfig.json 파일에서 rootDir를 지워줍니다.
+```
+
+```js
+// webpack.config.js
+...
+entry: "./src/index.tsx",
+...
+rules: [
+  ...
+  {
+    test: /\.tsx?$/,
+    use: "ts-loader",
+    exclude: /node_modules/,
+  },
+]
+...
+resolve: {
+  extensions: [".tsx", ".ts", ".js", ".jsx"],
+},
+...
+```
+</details>

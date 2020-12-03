@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: "./src/index.tsx",
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
@@ -42,10 +42,15 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".tsx", ".ts", ".js", ".jsx"],
   },
   plugins: [
     new CleanWebpackPlugin(),
