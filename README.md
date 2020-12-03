@@ -298,9 +298,6 @@ npm install -D sass-loader sass
 
 ```js
 // webpack.config.js
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-...
-
 rules: [
   ...
   // 기존
@@ -316,4 +313,27 @@ rules: [
 ],
 ...
 ```
+</details>
+
+### 사용되지 않는 파일 제거 clean-webpack-plugin 설정
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```
+npm i -D clean-webpack-plugin
+```
+
+```js
+// webpack.config.js
+...
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+...
+plugins: [
+  new CleanWebpackPlugin(),
+  ...
+],
+...
+```
+
 </details>
