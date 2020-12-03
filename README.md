@@ -286,3 +286,34 @@ plugins: [
 로더는 웹팩이 이해할 수 있게 비 자바스크립트 파일을 변환하여 웹팩이 읽을 수 있게 한다.
 플러그인은 번들된 결과물을 처리하는데 이는 간단히 생각하면 추출된 결과물은 플러그인을 통해 만들어진다고 생각하면 된다.
 </details>
+
+### SCSS 설정
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```
+npm install -D sass-loader sass
+```
+
+```js
+// webpack.config.js
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+...
+
+rules: [
+  ...
+  // 기존
+  {
+    test: /\.css$/i,
+    use: [MiniCssExtractPlugin.loader, "css-loader"],
+  },
+  // 변경후
+  {
+    test: /\.(sa|sc|c)ss$/i,
+    use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+  },
+],
+...
+```
+</details>
