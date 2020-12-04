@@ -41,7 +41,9 @@ npm i -D webpack webpack-cli
 
 
   ```
-  npm i -D html-loader html-webpack-plugin
+  // webpack5에서 [DEP_WEBPACK_COMPILATION_ASSETS] DeprecationWarning: Compilation.assets will be frozen in future, all modifications are deprecated.
+  // 라는 버그가 경고가 발생한다면 아래와 같이 @next 버전 설치 아니라면 @next 제외하고 설치
+  npm i -D html-loader html-webpack-plugin@next
   ```
   html-loader
   - html 파일에 선언된 URL 과 이미지 등 사용자가 필요한 요소를 파싱함
