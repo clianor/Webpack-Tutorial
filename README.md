@@ -178,7 +178,6 @@ module.exports = {
 <details>
 <summary>접기/펼치기 버튼</summary>
 
-`Error: Cannot find module ‘webpack-cli/bin/config-yargs’` 가 발생하여 아래와 같이 작업
 ```
 npm i -D webpack-cli webpack-dev-server @webpack-cli/serve
 ```
