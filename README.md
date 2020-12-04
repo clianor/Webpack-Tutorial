@@ -479,3 +479,21 @@ module.exports = {
 
 ```
 </details>
+
+### React 절대 경로 import
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```js
+// config/webpack.config.js
+...
+resolve: {
+  extensions: [".tsx", ".ts", ".js", ".jsx"],
+  alias: {
+    src: path.resolve(__dirname, "../src"),
+  },
+},
+...
+```
+</details>
