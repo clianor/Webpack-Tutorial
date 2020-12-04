@@ -518,3 +518,66 @@ export default 를 export 한 값들을 가지는 객체로 설정
 }
 ```
 </details>
+
+### 최적화 설정 (optimize-css-assets-webpack-plugin, postcss-safe-parser)
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```
+npm i -D optimize-css-assets-webpack-plugin postcss-safe-parser
+```
+
+```js
+// config/webpack.config.js
+...
+output: {
+  filename: "js/[contenthash].bundle.js",
+  path: path.resolve(__dirname, "../dist"),
+  publicPath: "/",
+},
+...
+```
+
+```js
+// webpack.config.prod.js
+const webpackConfig = require("./webpack.config");
+const TerserPlugin = require("terser-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const safePostCssParser = require("postcss-safe-parser");
+
+module.exports = {
+  ...webpackConfig,
+  optimization: {
+    minimize: true,
+    splitChunks: {
+      chunks: "all",
+    },
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        parallel: true,
+        extractComments: false,
+      }),
+      new OptimizeCssAssetsPlugin({
+        cssProcessorOptions: {
+          parser: safePostCssParser,
+          map: {
+            inline: false,
+            annotation: true,
+          },
+        },
+        cssProcessorPluginOptions: {
+          preset: ["default", { minifyFontValues: { removeQuotes: false } }],
+        },
+      }),
+    ],
+  },
+  mode: "production",
+};
+```
+</details>
