@@ -497,3 +497,24 @@ resolve: {
 ...
 ```
 </details>
+
+### TypeScript 모듈 기본 내보내기
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+`"allowSyntheticDefaultImports": true`
+export default 를 export 한 값들을 가지는 객체로 설정
+
+```json
+// tsconfig.json
+{
+  ...
+  "compilerOptions": {
+    ...
+    "allowSyntheticDefaultImports": true
+  }
+  ...
+}
+```
+</details>
