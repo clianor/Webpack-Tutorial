@@ -178,14 +178,13 @@ module.exports = {
 
 `Error: Cannot find module ‘webpack-cli/bin/config-yargs’` 가 발생하여 아래와 같이 작업
 ```
-npm un webpack-cli
-npm i -DE webpack-cli@3.3.11 webpack-dev-server@3.7.1
+npm i -D webpack-cli webpack-dev-server @webpack-cli/serve
 ```
 
 ```json
 "scripts": {
   "build": "webpack",
-  "start:dev": "webpack-dev-server --open"
+  "start:dev": "webpack serve --progress"
 },
 ```
 
@@ -204,6 +203,7 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 3000,
+    open: true,
     hot: true,
     overlay: true, // 빌드시 에러나 경고를 브라우져 화면에 표시한다.
     stats: "errors-only",
