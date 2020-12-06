@@ -345,7 +345,7 @@ plugins: [
 <summary>접기/펼치기 버튼</summary>
 
 ```
-npm i -D typescript ts-loader @types/react @types/react-dom
+npm i -D typescript@4.0.5 ts-loader @types/react @types/react-dom
 npx tsconfig.json
 // react 선택
 ```
