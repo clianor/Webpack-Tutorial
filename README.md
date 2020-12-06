@@ -657,36 +657,3 @@ function Contents() {
 export default Contents;
 ```
 </details>
-
-### url-loader 설정
-
-<details>
-<summary>접기/펼치기 버튼</summary>
-
-바이트 제한보다 작은 경우 DataURL을 반환
-
-```
-npm i -D url-loader
-```
-
-```js
-//config/webpack.config.js
-...
-rules: [
-  ...
-  {
-    test: /\.(png|jpe?g|gif)$/i,
-    use: [
-      {
-        loader: "url-loader",
-        options: {
-          limit: 8192,
-        },
-      },
-    ],
-  },
-  ...
-],
-...
-```
-</details>
