@@ -657,3 +657,42 @@ function Contents() {
 export default Contents;
 ```
 </details>
+
+### eslint-webpack-plugin, eslint-config-react-app 설정
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```
+npm i -D eslint eslint-webpack-plugin
+npm i -D eslint-config-react-app @typescript-eslint/eslint-plugin@^4.0.0 @typescript-eslint/parser@^4.0.0 babel-eslint@^10.0.0 eslint@^7.5.0 eslint-plugin-flowtype@^5.2.0 eslint-plugin-import@^2.22.0 eslint-plugin-jsx-a11y@^6.3.1 eslint-plugin-react@^7.20.3 eslint-plugin-react-hooks@^4.0.8
+```
+
+```js
+// config/webpack.config.js
+...
+const ESLintPlugin = require("eslint-webpack-plugin");
+
+module.exports = {
+  ...
+  plugins: [
+    ...
+    new ESLintPlugin({
+      extensions: ["tsx", "ts", "js", "jsx"],
+      exclude: "node_modules",
+      emitError: true,
+      emitWarning: true,
+      failOnError: false,
+      failOnWarning: false,
+    }),
+  ],
+};
+```
+
+```json
+// .eslintrc.json
+{
+  "extends": "react-app"
+}
+```
+</details>
