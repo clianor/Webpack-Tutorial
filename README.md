@@ -581,3 +581,79 @@ module.exports = {
 };
 ```
 </details>
+
+### file-loader 설정
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```
+npm i -D file-loader
+```
+
+```js
+//config/webpack.config.js
+...
+rules: [
+  ...
+  {
+    test: /\.(png|jpe?g|gif)$/i,
+    loader: "file-loader",
+    options: {
+      name: "[path][name].[ext]",
+    },
+  },
+  ...
+],
+...
+```
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    ...
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ]
+  },
+  ...
+}
+```
+
+```ts
+// src/@types/import-image.d.ts
+declare module "*.png" {
+  const src: string;
+  export default src;
+}
+
+declare module "*.jpg" {
+  const src: string;
+  export default src;
+}
+
+declare module "*.jpeg" {
+  const src: string;
+  export default src;
+}
+
+declare module "*.gif" {
+  const src: string;
+  export default src;
+}
+```
+
+```tsx
+// src/components/Contents.tsx
+import React from "react";
+import Image from "src/assets/books.jpg";
+
+function Contents() {
+  return <img src={Image} />;
+}
+
+export default Contents;
+```
+</details>
