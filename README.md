@@ -708,7 +708,7 @@ npm i -D dotenv
 ```
 
 ```js
-// webpack.config.js
+// config/webpack.config.js
 require("dotenv").config();
 const path = require("path");
 const webpack = require("webpack");
@@ -800,6 +800,32 @@ module.exports = {
       failOnWarning: false,
     }),
     new webpack.DefinePlugin(getClientEnv()),
+  ],
+};
+```
+</details>
+
+### webpack-manifest-plugin 셋팅
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+브라우저 캐싱 때문에 manifest 추가
+
+```
+npm i -D webpack-manifest-plugin
+```
+
+```js
+// config/webpack.config.prod.js
+...
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
+
+module.exports = {
+  ...
+  plugins: [
+    ...webpackConfig.plugins,
+    new WebpackManifestPlugin({ fileName: "webpack.manifest.js" }),
   ],
 };
 ```

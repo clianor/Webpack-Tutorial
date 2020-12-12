@@ -2,6 +2,7 @@ const webpackConfig = require("./webpack.config");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const safePostCssParser = require("postcss-safe-parser");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 
 module.exports = {
   ...webpackConfig,
@@ -35,4 +36,8 @@ module.exports = {
     ],
   },
   mode: "production",
+  plugins: [
+    ...webpackConfig.plugins,
+    new WebpackManifestPlugin({ fileName: "webpack.manifest.js" }),
+  ],
 };
