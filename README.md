@@ -875,3 +875,61 @@ module.exports = {
 }
 ```
 </details>
+
+### autoprefixer 셋팅
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```
+npm i -D postcss-loader autoprefixer
+```
+
+```js
+// config/postcss.config.js
+module.exports = {
+  plugins: [require("autoprefixer")],
+};
+```
+
+```json
+// package.json
+{
+  ...
+  "browserslist": [
+    "cover 99.5%"
+  ]
+}
+```
+
+```js
+// config/webpack.config.js
+...
+module.exports = {
+  ...
+  module: {
+    rules: [
+      ...
+      {
+        test: /\.(sa|sc|c)ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                config: path.resolve(__dirname, "postcss.config.js"),
+              },
+            },
+          },
+          "sass-loader",
+        ],
+      },
+      ...
+    ],
+  },
+  ...
+};
+```
+</details>
