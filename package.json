@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --config config/webpack.config.prod.js",
-    "start:dev": "webpack serve --progress --config config/webpack.config.dev.js"
+    "start": "webpack serve --progress --config config/webpack.config.dev.js"
   },
   "keywords": [],
   "author": "",
