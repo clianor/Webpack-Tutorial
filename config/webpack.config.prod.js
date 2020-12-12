@@ -40,4 +40,15 @@ module.exports = {
     ...webpackConfig.plugins,
     new WebpackManifestPlugin({ fileName: "webpack.manifest.js" }),
   ],
+  stats: {
+    builtAt: false,
+    children: false,
+    entrypoints: false,
+    hash: false,
+    modules: false,
+    version: false,
+    publicPath: true,
+    excludeAssets: [/\.(map|txt|html|jpg|png)$/, /\.json$/],
+    warningsFilter: [/exceed/, /performance/],
+  },
 };
