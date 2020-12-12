@@ -7,7 +7,8 @@
     "build": "webpack --config config/webpack.config.prod.js",
     "build:analyzer": "npm run prebuild && webpack --config config/webpack.config.prod.analyzer.js",
     "prebuild": "node scripts/prebuild",
-    "start": "webpack serve --progress --config config/webpack.config.dev.js"
+    "start": "webpack serve --progress --config config/webpack.config.dev.js",
+    "watch": "webpack --watch --progress --config config/webpack.config.dev.js"
   },
   "keywords": [],
   "author": "",

@@ -858,3 +858,20 @@ module.exports = {
 };
 ```
 </details>
+
+### watch 스크립트 추가
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+```json
+{
+  ...
+  "scripts": {
+    ...
+    "watch": "webpack --watch --progress --config config/webpack.config.dev.js"
+  },
+  ...
+}
+```
+</details>
