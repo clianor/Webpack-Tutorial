@@ -1,8 +1,23 @@
+require("dotenv").config();
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+
+function getClientEnv() {
+  return {
+    "process.env": JSON.stringify(
+      Object.keys(process.env)
+        .filter((key) => /^REACT_APP/i.test(key))
+        .reduce((env, key) => {
+          env[key] = process.env[key];
+          return env;
+        }, {})
+    ),
+  };
+}
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -73,5 +88,6 @@ module.exports = {
       failOnError: false,
       failOnWarning: false,
     }),
+    new webpack.DefinePlugin(getClientEnv()),
   ],
 };
