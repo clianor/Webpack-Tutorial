@@ -3,6 +3,8 @@ const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const safePostCssParser = require("postcss-safe-parser");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 module.exports = {
   ...webpackConfig,
@@ -42,6 +44,7 @@ module.exports = {
   plugins: [
     ...webpackConfig.plugins,
     new WebpackManifestPlugin({ fileName: "webpack.manifest.js" }),
+    new BundleAnalyzerPlugin(),
   ],
   stats: {
     builtAt: false,

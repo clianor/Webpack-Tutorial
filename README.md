@@ -830,3 +830,31 @@ module.exports = {
 };
 ```
 </details>
+
+### Bundle Analyzer 셋팅
+
+<details>
+<summary>접기/펼치기 버튼</summary>
+
+어떤 부분을 코드 스플리팅 해야하는지 분석해주는 분석기 webpack-bundle-analyzer 셋팅
+
+```
+npm i -D webpack-bundle-analyzer
+```
+
+```js
+// config/webpack.config.prod.analyzer.js 참고
+...
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+
+module.exports = {
+  ...
+  plugins: [
+    ...
+    new BundleAnalyzerPlugin(),
+  ],
+  ...
+};
+```
+</details>
